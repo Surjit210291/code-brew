@@ -1,0 +1,29 @@
+.table-border {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.table-border th, .table-border td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.table-border th {
+  background-color: #f2f2f2;
+}
+.table-padding tr {
+  padding: 10px ;
+}
+.asc::after {
+  content: ' ▲';
+}
+
+.desc::after {
+  content: ' ▼';
+}
+.center {
+  text-align: center;
+}

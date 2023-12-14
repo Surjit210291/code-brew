@@ -1,0 +1,52 @@
+
+
+<table class="table-border" >
+  <thead >
+
+   Search:-  <input type="text" [(ngModel)]="searchTerm" (keyup)="onSearch($event)">
+
+
+    <tr >
+    Select Configuration:- <ng-select  [multiple]="true"  (change)="onSelectionChange($event)" >
+      <ng-option *ngFor="let configur of uniqueArray" [value]="configur">{{configur}}</ng-option>
+
+    </ng-select>
+    </tr>
+
+      <tr>
+    Set max price amount:-  <input type="number" [(ngModel)]="minPrice" (keyup)="filterProperties($event)">
+    </tr>
+    <tr>
+      <th [class.asc]="reverse" [class.desc]="!reverse" (click)="sort('name')">Name</th>
+
+
+      <th [class.asc]="reverse" [class.desc]="!reverse" (click)="sort('building.name')">Building Name</th>
+      <th [class.asc]="reverse" [class.desc]="!reverse" (click)="sort('name')">Tower Name</th>
+      <th [class.asc]="reverse" [class.desc]="!reverse" (click)="sort('property_type.name')">Property Type Name</th>
+      <th [class.asc]="reverse" [class.desc]="!reverse" (click)="sort('configuration.name')">configuration Name</th>
+      <th [class.asc]="reverse" [class.desc]="!reverse" (click)="sort('min_price')">Min price</th>
+      <th [class.asc]="reverse" [class.desc]="!reverse" (click)="sort('bedroom')">Bedroom</th>
+      <th [class.asc]="reverse" [class.desc]="!reverse" (click)="sort('bathroom')">Bathroom</th>
+      <th [class.asc]="reverse" [class.desc]="!reverse" (click)="sort('half_bathroom')">Half Bathroom</th>
+      </tr>
+      <tr>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of showData ">
+      <td>{{ item.name }}</td>
+      <td>{{ item.building.name }}</td>
+      <td>{{item.building_towers.tower_name}}</td>
+      <td>{{item.property_type.name}}</td>
+      <td>{{item.configuration.name}}</td>
+      <td>{{item.min_price}}</td>
+      <td>{{item.bedroom}}</td>
+      <td>{{item.bathroom}}</td>
+      <td>{{item.half_bathroom}}</td>
+    </tr>
+  </tbody>
+
+</table>
+<div style="text-align: center;" *ngIf="showData?.length ==0">No Data Found</div>
